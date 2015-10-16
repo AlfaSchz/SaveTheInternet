@@ -31,7 +31,7 @@ body {
 .countdown {
 	font-size: 2em;
 	font-weight: bold;
-	text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000
+	text-shadow:5px 5px 3px #ff9000, -5px 5px 3px #ff9000, 5px -5px 3px #ff9000, -3px -5px 3px #ff9000;
 }
 
 a {
@@ -245,7 +245,7 @@ td > a {
 	text-align:center;
 	color: #000;
 	padding: 130px 0 0;
-	background: #ff9000 url('../img/Homepage-europe-yellow.png') repeat-y scroll 0 0 / contain
+	background: #ff9000 url('../img/electric-europe-white.png') repeat-y scroll 0 0 / contain
 }
 
 .subheadline {
@@ -256,6 +256,7 @@ td > a {
 	margin: 40px 0px 20px 0px;
 	font: 25px/1.2em Montserrat-Bold;
 	letter-spacing: 1.5px;
+	text-shadow:5px 5px 3px #ff9000, -5px 5px 3px #ff9000, 5px -5px 3px #ff9000, -3px -5px 3px #ff9000;
 }
 
 .teaser {
@@ -265,7 +266,7 @@ td > a {
 }
 
 div.teaser{
-  text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000;
+  text-shadow:5px 5px 3px #ff9000, -5px 5px 3px #ff9000, 5px -5px 3px #ff9000, -3px -5px 3px #ff9000;
 }
 
 #takeactionbt {
@@ -790,7 +791,7 @@ footer {
 	padding: 0;
 	margin: 2.9em 0 0.5em;
 	font: 36px/40px Montserrat-Bold;
-	text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000
+	text-shadow:5px 5px 3px #ff9000, -5px 5px 3px #ff9000, 5px -5px 3px #ff9000, -3px -5px 3px #ff9000;
 }
 
 .choose {
@@ -921,7 +922,6 @@ footer {
 	h1.subheadline {
 		letter-spacing: 0;
 		font-size: 16px;
-		text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000;
 	}
 	.seventwenty {
 		padding: 0 2%;
