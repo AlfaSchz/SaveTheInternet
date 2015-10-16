@@ -31,6 +31,7 @@ body {
 .countdown {
 	font-size: 2em;
 	font-weight: bold;
+	text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000
 }
 
 a {
@@ -94,7 +95,7 @@ h3.contactNow:after {
 }
 
 .divdash {
-  border-bottom: 1px dashed #FAB53D;
+  border-bottom: 1px dashed #ff9000;
   margin: 30px 0;
 }
 
@@ -107,7 +108,7 @@ th, td {
 }
 
 th {
-	background: #eb1c23;
+	background: #ff9000;
 	color: #fff;
 }
 
@@ -122,7 +123,7 @@ td {
 	padding: 17px 20px;
 }
 td > a {
-	color: #eb1c23;
+	color: #ff9000;
 	text-decoration:none;
 }
 .thl {
@@ -243,9 +244,8 @@ td > a {
 #header {
 	text-align:center;
 	color: #000;
-	padding: 190px 0 0;
-	background: #FAB53D url(../img/Homepage-Background.png) center center no-repeat;
-	background-size: cover;
+	padding: 130px 0 0;
+	background: #ff9000 url('../img/Homepage-europe-yellow.png') repeat-y scroll 0 0 / contain
 }
 
 .subheadline {
@@ -262,6 +262,10 @@ td > a {
 	margin: 15px 30px 60px 30px;
 	font: 18px/1.2em Montserrat-regular;
 	text-align:center;
+}
+
+div.teaser{
+  text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000;
 }
 
 #takeactionbt {
@@ -502,7 +506,7 @@ h5:before, h5:after {
 }
 #mainnav > ul > li > a:hover {
 	padding-bottom: 15px;
-	border-bottom: #EDAB39 5px solid;
+	border-bottom: #ff9000 5px solid;
 }
 
 
@@ -514,7 +518,7 @@ h5:before, h5:after {
 #langselect {
 	display:none;
 	position:absolute;
-	border-top: #EDAB39 10px solid;
+	border-top: #ff9000 10px solid;
 	background: #fff;
 	text-align:center;
 	width: 95px;
@@ -530,7 +534,7 @@ h5:before, h5:after {
 }
 #langselect > li > a:hover {
 	color: #fff;
-	background: #EDAB39;
+	background: #ff9000;
 }
 
 #langnav:hover > #langselect {
@@ -627,12 +631,12 @@ h5:before, h5:after {
 }
 
 .actList > .current {
-  background: #FAB53D;
+  background: #ff9000;
   color: #000;
 }
 
 .actArea {
-  background: #FAB53D;
+  background: #ff9000;
   padding: 1%;
 }
 
@@ -652,8 +656,8 @@ h5:before, h5:after {
 }
 
 #newsletter-submit {
-  background: #FAB53D;
-  border: solid #FAB53D;
+  background: #ff9000;
+  border: solid #ff9000;
 }
 
 .mepFilter > select, .mepFilter > input, .newsletter-box select, .newsletter-box input {
@@ -716,7 +720,7 @@ span.timeinline {
   display: inline-block;
   width: 34px;
   height: 34px;
-  background: #FAB53D;
+  background: #ff9000;
   overflow: hidden;
   margin: 26px 0 0;
   z-index: 2;
@@ -737,7 +741,7 @@ span.timeinline {
 
 
 span.button {
-  background: #FAB53D;
+  background: #ff9000;
   padding: 1em 1.4em;
   text-decoration: none;
   display: inline-block;
@@ -786,6 +790,7 @@ footer {
 	padding: 0;
 	margin: 2.9em 0 0.5em;
 	font: 36px/40px Montserrat-Bold;
+	text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000
 }
 
 .choose {
@@ -809,7 +814,7 @@ footer {
   height: 56px;
   overflow: hidden;
   display: inline-block;
-  background-image: url(../img/icons.png);
+  background-image: url(../img/icons-orange.png);
   vertical-align: middle;
 }
 
@@ -916,6 +921,7 @@ footer {
 	h1.subheadline {
 		letter-spacing: 0;
 		font-size: 16px;
+		text-shadow:3px 3px 2px #ff9000, -3px 3px 2px #ff9000, 3px -3px 2px #ff9000, -3px -3px 2px #ff9000;
 	}
 	.seventwenty {
 		padding: 0 2%;
