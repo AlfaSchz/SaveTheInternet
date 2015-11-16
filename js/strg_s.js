@@ -32,29 +32,99 @@ function nextmep() {
   document.getElementById("phoneiframe"),
   document.getElementById("mailiframe")];
   for (i in els) {
-    var e=els[i]
-    var h=e.innerHTML
-    e.innerHTML=""
-    e.innerHTML=h
+    var e=els[i];
+    if (e) {
+      var h=e.innerHTML
+      e.innerHTML=""
+      e.innerHTML=h  
+    }
   }
- }
+}
+
+var plenary_vote = new Date(2015, 9, 27, 13, 0);
 
 
-$(function () {
- $('span.mailcheat').each(
-   function (i, el) {         
-     if ($(el).attr('locip')) {
-         var host = $(el).attr('domip') || window.location.host
-         var mail = $(el).attr('locip') + '@' + host;
-       $(el).html('<a href="mailto:' + mail + '">' + ($(el).attr('inner') || mail || el.innerText || 'mail') + '</a>');
-     } else {
-       $(el).html(el.innerText.replace(/^(\w+\.\w+) \\at\\ (savetheinternet.eu)/, '<a href="mailto:$1@$2">$1@$2</a>'));
-     }
-  });
-  // sanitize country selection during focus on small group of negotiators
-  //$('#country_selector option:not([value=es],[value=gb],[value=de],[value=pt],[value=at],[value=dk],[value=it])').attr('disabled','disabled')
-});
+// bomb countdown
+function setBombCountdown()
+{
+  var ms = plenary_vote.valueOf()-(new Date()).valueOf()
+    , d = Math.floor(ms/(1000*60*60*24))
+    , h = Math.floor(ms/(1000*60*60)%24)
+    , m = Math.floor(ms/(1000*60)%60)
+    , s = Math.floor(ms/1000%60)
+  ;
 
+  // Set days
+  if (d == 1) {
+    $('#countdownlabeldays').html('Day');
+  } else if(d < 0) {
+    d = d.toString();
+    d = '00';
+    $('#countdownlabeldays').html('Days');
+  } else {
+    $('#countdownlabeldays').html('Days');
+  }
+  d = d+''; 
+  if (d.length < 2) {
+    d = d.toString();
+    d = '0'+d;
+  }
+  $('#countdowndigitdays').html(d);
+
+  // Set hours
+  if (h == 1) {
+    $('#countdownlabelhours').html('Hour');
+  } else if(h < 0) {
+    h = h.toString();
+    h = '00';
+    $('#countdownlabelhours').html('Hours');
+  } else {
+    $('#countdownlabelhours').html('Hours');
+  }
+  h = h+''; 
+  if (h.length < 2) {
+    h = h.toString();
+    h = '0'+h;
+  }
+  $('#countdowndigithours').html(h);
+
+  // Set minutes
+  if (m == 1) {
+    $('#countdownlabelminutes').html('Minute');
+  } else if(m < 0) {
+    m = m.toString();
+    m = '00';
+    $('#countdownlabelminutes').html('Minutes');
+  } else {
+    $('#countdownlabelminutes').html('Minutes');
+  }
+  m = m+''; 
+  if (m.length < 2) {
+    m = m.toString();
+    m = '0'+m;
+  }
+  $('#countdowndigitminutes').html(m);
+
+  // Set minutes
+  if (s == 1) {
+    $('#countdownlabelseconds').html('Second');
+  } else if(s < 0) {
+    s = s.toString();
+    s = '00';
+    $('#countdownlabelseconds').html('Seconds');
+  } else {
+    $('#countdownlabelseconds').html('Seconds');
+  }
+  s = s+''; 
+  if (s.length < 2) {
+    s = s.toString();
+    s = '0'+s;
+  }
+  $('#countdowndigitseconds').html(s);
+}
+
+setBombCountdown();
+window.setInterval('setBombCountdown()',1000);
 
 // countdown 
 var _translate_twords = {
@@ -62,6 +132,7 @@ var _translate_twords = {
   , 'de': {'hs': 'Stunden', 'ds': 'Tagen', 'ms': 'Minuten', 'ss': 'Sekunden', 'h': 'Stunde', 'd': 'Tag', 'm': 'Minute', 's': 'Sekunde', 'suffix': 'bis zur Abstimmung', 'prefix': 'Abstimmung in', 'smprefix': 'Noch ', 'smsuffix': ' Zeit um das Internet zu retten. Take Action on http://savetheinternet.eu/de #Netzneutralität'}
   , 'fr': {'hs': 'heures', 'ds': 'jours', 'ms': 'minutes', 'ss': 'secondes', 'h': 'heure', 'd': 'jour', 'm': 'minute', 's': 'seconde', 'suffix': 'jusqu\'au vote', 'prefix': 'Vote dans', 'smprefix': 'Plus que ', 'smsuffix': ' pour sauver internet. Agissez, rendez-vous sur http://savetheinternet.eu/fr #netneutralité'}
   , 'es': {'hs': 'horas', 'ds': 'días', 'ms': 'minutos', 'ss': 'segundos', 'h': 'hora', 'd': 'día', 'm': 'minuto', 's': 'segundo', 'suffix': 'hasta el voto', 'prefix': 'Voto en', 'smprefix': 'Quedan ', 'smsuffix': ' para salvar internet. Actúa ahora en http://savetheinternet.eu/es #neutralidaddelared'}
+  , 'cs': {'hs': 'hodin', 'ds': 'dnů', 'ms': 'minut', 'ss': 'sekund', 'h': 'hodina', 'd': 'den', 'm': 'minuta', 's': 'sekunda', 'suffix': 'do hlasování', 'prefix': 'Plenární hlasování začne za', 'smprefix': 'Na záchranu Internetu zbývá ', 'smsuffix': ' Zapojte se na http://savetheinternet.eu #SitovaNeutralita '}
 };
 var plenary_vote = new Date(2015, 9, 27, 08, 00);
 
@@ -114,7 +185,7 @@ function setSMLinks(o, twords, e) {
 
 $(function () {
   try {
-    var twords = _translate_twords[((window.location.pathname + '').match(/\w\w/)||[])[0]||'en'];
+    var twords = _translate_twords[((window.location.pathname + '').match(/\w\w/)||[])[0]||'en'] || _translate_twords['en'];
     var e = $('.countdown a'); 
     if (e) {
       setCountdown(e, twords);
@@ -276,4 +347,54 @@ $("#goMail").click(function() {
   $('#chooseMail').siblings().removeClass("current");
   $('.mepFilter').show();
 });
+
+var no_fax = true;
+if (no_fax) {
+  $('#goFax,#chooseFax').hide();
+  $('.actList > .actItem').css('width','25%');
+}
+
+
+function apply_mailcheat () {
+  $('span.mailcheat').each(
+   function (i, el) {         
+     if ($(el).attr('locip')) {
+         var host = $(el).attr('domip') || window.location.host
+         var mail = $(el).attr('locip') + '@' + host;
+       $(el).html('<a href="mailto:' + mail + '">' + ($(el).attr('inner') || mail || el.innerText || 'mail') + '</a>');
+     } else {
+       $(el).html(el.innerText.replace(/^(\w+\.\w+) \\at\\ (savetheinternet.eu)/, '<a href="mailto:$1@$2">$1@$2</a>'));
+     }
+  });
+}
+/*smoth scroll*/
+
+$('.scroll').click(function(){
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1000);
+    return false;
+});
+
+  
+
+
+$(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    var bodyHeight = $('body').height();
+    if  ((bodyHeight - scroll)/bodyHeight < 0.9){
+      $('.box-top').fadeIn(200);
+    }else{
+      $('.box-top').fadeOut(200);
+    }
+});
+  
+
+$('.more-link').click(function(){
+    id = $(this).attr('id');
+    console.log('#info-'+ id);
+    $('#info-'+ id).slideToggle(1000);
+    $(this).children('span').toggle(0);
+});
+  
 
