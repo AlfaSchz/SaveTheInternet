@@ -392,9 +392,20 @@ $(window).scroll(function (event) {
 
 $('.more-link').click(function(){
     id = $(this).attr('id');
-    console.log('#info-'+ id);
-    $('#info-'+ id).slideToggle(1000);
+    moreInfo = $('#info-'+ id);
+    moreHeight = moreInfo.height();
+
+	if(moreInfo.css("display") === "block"){
+	   $('html').animate({scrollTop: document.documentElement.scrollTop - moreHeight}, 1000);
+    console.log($(document).offset());
+
+	}
+
+    moreInfo.slideToggle(1000);
     $(this).children('span').toggle(0);
+	
 });
   
+
+
 
